@@ -6,10 +6,10 @@
 ```
 /AlgoWeekly
   /Week01
-    - problem.md       # Problem description
-    - solution.py      # Python implementation
-    - solution.c       # C implementation
-    - solution_notes.md # Explanation and analysis
+    - problem.md   # Problem description
+    - main.py      # Python implementation
+    - main.c       # C implementation
+    - notes.md     # Explanation and analysis
   /Week02
     ...
   /Resources
