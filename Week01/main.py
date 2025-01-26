@@ -1,9 +1,26 @@
 import zlib
 
 
+def crc32_table(poly: int) -> list:
+    crc_table = []
+    for i in range(256):
+        crc = i;
+        for _ in range(8):
+            if (crc & 1):
+                crc = (crc >> 1) ^ poly
+            else:
+                crc = crc >> 1
+        crc_table.append(crc)
+
+    return crc_table
+
 def crc32_genPoly() -> int:
     # G(x) = x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 +x^10 + x^8 + x^7 + x^5 + x^4 + x^2 + x + 1
     exponents = [32, 26, 23, 22, 16, 12, 11, 10, 8, 7, 5, 4, 2, 1, 0]
+
+    # from wiki
+    # G(x) = x^31 + x^30 + x^26 + x^25 + x^24 + x^18 + x^15 + x^14 + x^12 + x^11 + x^10 + x^8 + x^6 + x^5 + x^4 + x^3 + x + 1
+    # exponents = [31, 30, 26, 25, 24, 18, 15, 14, 12, 11, 10, 8, 6, 5, 4, 3, 1, 0]
     
     # 计算多项式值
     polynomial = sum(1 << exp for exp in exponents)
@@ -13,7 +30,7 @@ def crc32_genPoly() -> int:
     
     return polynomial & 0xFFFFFFFF
 
-def crc32_genPoly_reverse(poly) -> int:
+def crc32_genPoly_reverse(poly: int) -> int:
     
     reversed_poly = 0
 
@@ -38,11 +55,20 @@ def crc32(data: bytes, genx: int) -> int:
                 crc = (crc >> 1) ^ genx
             else:
                 crc >>= 1
+        print(f"byte:{byte}, crc:{crc:08X}")
     
     return crc ^ 0xFFFFFFFF
 
 def crc32_zlib(data: bytes) -> int:
     return zlib.crc32(data)
+
+def crc32_by_table(data: bytes, table: list) -> int:
+    crc = 0xFFFFFFFF
+
+    for byte in data:
+        idx = (crc ^ byte) & 0xFF
+        crc = table[idx] ^ (crc >> 8)
+    return crc ^ 0xFFFFFFFF
 
 def main():
     genx = crc32_genPoly()
@@ -56,7 +82,13 @@ def main():
     print(f"crc:0x{crc: 08X}")
 
     crczlib = crc32_zlib(test_data)
-    print(f"crc32_zlib{crczlib: 08X}")
+    print(f"crc32_zlib:0x{crczlib: 08X}")
+
+
+    table = crc32_table(genx_r)
+    # print(table)
+    crc_t = crc32_by_table(test_data, table);
+    print(f"crct:0x{crc_t: 08X}")
 
     return
 
