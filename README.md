@@ -67,4 +67,63 @@ Index: 3
 2. Develop multi-language programming skills.
 3. Build a personal repository of algorithmic solutions.
 
+---
+
+## Week 03: Merge Sort Algorithm
+**Objective**: Implement the Merge Sort algorithm and analyze its complexity.
+
+### Problem Description
+Merge Sort is a divide-and-conquer sorting algorithm that recursively splits an array into smaller subarrays, sorts them, and merges them back together.
+
+### Requirements
+- Input: An unsorted list/array of integers.
+- Output: A sorted list/array.
+- Implementations: At least two languages.
+
+### Resources
+- [Merge Sort Explanation](https://en.wikipedia.org/wiki/Merge_sort)
+- [Visualization of Merge Sort](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+
+---
+
+## Week 04: Dijkstra's Shortest Path Algorithm
+**Objective**: Implement Dijkstra's algorithm to find the shortest path in a weighted graph.
+
+### Problem Description
+Dijkstra's algorithm finds the shortest paths between nodes in a graph with non-negative weights.
+
+### Requirements
+- Input: A weighted graph and a source node.
+- Output: The shortest path distances from the source node to all other nodes.
+- Implementations: At least two languages.
+
+### Resources
+- [Dijkstra's Algorithm Overview](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+- [Graph Algorithm Visualization](https://visualgo.net/en/sssp)
+
+---
+
+## Week 05: Knapsack Problem (0/1)
+**Objective**: Solve the 0/1 Knapsack problem using dynamic programming.
+
+### Problem Description
+The 0/1 Knapsack problem is a classic optimization problem where you have a set of items, each with a weight and value, and a knapsack that can hold a maximum weight. The goal is to maximize the total value without exceeding the weight limit.
+
+### Requirements
+- Input: A list of items with weights and values, and a knapsack weight limit.
+- Output: The maximum value that can be obtained.
+- Implementations: At least two languages.
+
+### Resources
+- [Knapsack Problem Explanation](https://en.wikipedia.org/wiki/Knapsack_problem)
+- [Dynamic Programming Approach](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
+
+---
+
+## Goals
+1. Strengthen understanding of algorithms and data structures.
+2. Develop multi-language programming skills.
+3. Build a personal repository of algorithmic solutions.
+
 Feel free to explore the repository, suggest improvements, or share your solutions! 🚀
+
